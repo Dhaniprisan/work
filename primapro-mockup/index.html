@@ -1286,10 +1286,7 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
           <path d="M 85 85 L 70 160" stroke="url(#lineGrad1)" stroke-width="2.5" stroke-dasharray="5 7" fill="none" stroke-linecap="round"/>
           <!-- Klinik → PrimaCare -->
           <path d="M 315 85 L 330 160" stroke="url(#lineGrad2)" stroke-width="2.5" stroke-dasharray="5 7" fill="none" stroke-linecap="round"/>
-          <!-- Aplikasi → Hub -->
-          <path d="M 95 180 C 120 240, 160 300, 200 330" stroke="url(#lineGrad1)" stroke-width="2.5" stroke-dasharray="5 7" fill="none" stroke-linecap="round"/>
-          <!-- PrimaCare → Hub -->
-          <path d="M 305 180 C 280 240, 240 300, 200 330" stroke="url(#lineGrad2)" stroke-width="2.5" stroke-dasharray="5 7" fill="none" stroke-linecap="round"/>
+
           <!-- Dokter ↔ Klinik -->
           <path d="M 85 85 Q 200 50, 315 85" stroke="url(#lineGrad3)" stroke-width="2" stroke-dasharray="5 8" fill="none" stroke-linecap="round" opacity="0.4"/>
           <!-- Animated dots -->
@@ -1299,12 +1296,7 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
           <circle r="4" fill="#3A9BCF" opacity="0.85">
             <animateMotion dur="5s" repeatCount="indefinite" path="M 315 85 L 330 160"/>
           </circle>
-          <circle r="3.5" fill="#4FB8D9" opacity="0.85">
-            <animateMotion dur="4.5s" repeatCount="indefinite" path="M 95 180 C 120 240, 160 300, 200 330"/>
-          </circle>
-          <circle r="3.5" fill="#1E78BE" opacity="0.75">
-            <animateMotion dur="5.5s" repeatCount="indefinite" path="M 305 180 C 280 240, 240 300, 200 330"/>
-          </circle>
+
         </svg>
         <!-- Top: Dokter & Klinik -->
         <div class="eko-node eko-node-dokter">
@@ -1333,14 +1325,7 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
           </div>
           <div class="eko-node-text">PrimaCare<br><small style="font-size:11px;font-weight:500;opacity:0.7">RME + Vaksin</small></div>
         </div>
-        
-        <!-- Center hub -->
-        <div class="eko-node eko-node-hub">
-          <div class="eko-node-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 4M14 6l8 8M5 19l-2 2M11 13l-7 7M14 6l-7 7M19 11l-7 7M11 13l4 4M7 17l4 4"/></svg>
-          </div>
-          <div class="eko-node-text">Suplai Vaksin</div>
-        </div>
+
       </div>
       </div>
     </div>
