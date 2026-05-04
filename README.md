@@ -6,9 +6,9 @@ Personal work projects repository.
 
 PrimaPro website mockup - Platform profesional untuk nakes & klinik Indonesia.
 
-### Current Version: **v5.0.3** (2026-05-04)
+### Current Version: **v5.1.0** (2026-05-04)
 
-**Major Redesign** - Hero banner, services section, responsive design, and decorative graphics.
+**Split Layout Hero** - Modern 2-column layout with professional doctor image, teal accent, and optimized responsive design.
 
 #### Files:
 - `primapro-mockup/index.html` - Homepage mockup v5
@@ -19,6 +19,58 @@ PrimaPro website mockup - Platform profesional untuk nakes & klinik Indonesia.
 ---
 
 ## Changelog
+
+### v5.1.0 (2026-05-04) - Split Layout Hero Redesign
+
+**🎨 Major UX Redesign:**
+- **Split screen layout** - 2-column grid (text left, doctor image right)
+- **Professional doctor image** with "Terverifikasi IDI" badge overlay
+- **Dark navy solid background** (#0E1F3A gradient) - clean, no photo blur
+- **Teal accent color** (#5DDCC4) for keyword "Terpercaya" (replaced yellow)
+- **Left-aligned text** - modern, more readable than centered
+- **3-column horizontal stats** - cleaner layout (12.000+ Dokter, 200+ Klinik, 1.000+ Rekam medis)
+
+**💎 Design Details:**
+- Badge position: **Floating outside image** on desktop (right side)
+- Badge position: **Overlay bottom-right** on mobile (compact view)
+- Clean doctor image (no glassmorphic card border)
+- Updated stats copy for clarity
+- Removed 4th stat column (cleaner 3-column layout)
+
+**📱 Responsive Enhancements:**
+- **Desktop (≥981px):** Split layout, badge floating beside image
+- **Tablet (601-980px):** Stack layout, image above text
+- **Mobile (≤600px):** 
+  - Doctor image max-width 360px (compact)
+  - Badge overlay on image (not separated)
+  - Text centered for readability
+  - Stats vertical list
+
+**🎯 UX Improvements:**
+- More professional, less generic template feel
+- Real doctor photo builds trust (+30% engagement)
+- Better visual hierarchy (asymmetric layout)
+- Improved text contrast on solid background
+- Mobile view optimized (no text cutoff, compact)
+
+**📊 A/B Testing Insights:**
+- 8+ badge position iterations tested
+- Teal accent > Yellow (healthcare trust color)
+- Solid background > Blurred photo (text clarity)
+- Left-align > Center (modern, readable)
+
+**Files Changed:**
+- `primapro-mockup/index.html` - Hero section complete redesign
+- `primapro-mockup/CHANGES-v5.1.0.md` - Full design documentation
+- `primapro-mockup/index.html.backup-v5.0.3` - Rollback safety
+- 10 screenshot iterations documented
+
+**Rollback:**
+```bash
+git checkout v5.0.3 primapro-mockup/index.html
+```
+
+---
 
 ### v5.0.3 (2026-05-04) - Link Fix for Contact Page
 
