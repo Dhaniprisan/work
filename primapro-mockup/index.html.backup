@@ -179,27 +179,6 @@ h1, h2, h3, h4, h5 {
 /* ===== SECTION COMMON ===== */
 section.block { padding: 80px 0; position: relative; }
 section.block-alt { background: var(--color-surface); }
-
-/* Decorative graphics */
-.section-graphic {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.08;
-  z-index: 0;
-}
-.section-graphic-tl {
-  top: -40px;
-  left: -60px;
-  width: 240px;
-  height: 240px;
-}
-.section-graphic-br {
-  bottom: -60px;
-  right: -40px;
-  width: 280px;
-  height: 280px;
-  transform: rotate(180deg);
-}
 .section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
 .section-eyebrow { color: var(--color-primary); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; font-family: var(--font-display); }
 .section-head h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 14px; letter-spacing: -0.025em; }
@@ -566,117 +545,53 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 /* ===== HERO (homepage) ===== */
 .hero {
   position: relative; overflow: hidden;
-  padding: 64px 0 72px;
-  background: linear-gradient(135deg, #0F4C81 0%, #1E78BE 50%, #2A8FD5 100%);
-  background-size: cover;
-  background-position: center;
+  padding: 80px 0 100px;
+  background: var(--color-bg);
 }
 .hero::before {
   content: ""; position: absolute; inset: 0;
-  background-image: 
-    url('data:image/svg+xml,%3Csvg width="1440" height="600" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3ClinearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" stop-color="%231E78BE" stop-opacity=".3"/%3E%3Cstop offset="100%25" stop-color="%234FB8D9" stop-opacity=".1"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23g)" width="1440" height="600"/%3E%3Ccircle cx="200" cy="150" r="120" fill="%23ffffff" opacity=".03"/%3E%3Ccircle cx="1200" cy="400" r="180" fill="%23ffffff" opacity=".05"/%3E%3Cpath d="M0,300 Q360,200 720,280 T1440,300" stroke="%23ffffff" stroke-width="2" fill="none" opacity=".08"/%3E%3C/svg%3E'),
-    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.12), transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(79,184,217,0.15), transparent 60%);
-  background-blend-mode: overlay;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(79,184,217,0.10), transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(30,120,190,0.06), transparent 55%);
   pointer-events: none;
-  opacity: 0.7;
 }
 .hero::after {
   content: ""; position: absolute; inset: 0;
-  background-image: 
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 80px, rgba(255,255,255,0.03) 81px),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 80px, rgba(255,255,255,0.03) 81px);
-  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(15,23,42,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 30%, transparent 75%);
+  opacity: 0.6; pointer-events: none;
 }
 .hero-grid {
   position: relative; z-index: 1;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;
 }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.15); color: white;
+  background: var(--color-accent-soft); color: var(--color-primary-dark);
   padding: 7px 14px; border-radius: 999px;
   font-family: var(--font-display);
   font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
+  margin-bottom: 24px;
+  border: 1px solid rgba(30,120,190,0.12);
 }
 .hero h1 {
-  font-size: clamp(36px, 5vw, 52px); line-height: 1.15;
-  letter-spacing: -0.03em; font-weight: 800;
-  margin-bottom: 18px; color: white;
-  max-width: 900px;
+  font-size: clamp(38px, 5.5vw, 60px); line-height: 1.05;
+  letter-spacing: -0.035em; font-weight: 800;
+  margin-bottom: 22px; color: var(--color-text);
 }
 .hero h1 .accent {
-  color: #FFD93D;
-  text-shadow: 0 2px 12px rgba(255,217,61,0.3);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
 }
 .hero .sub {
-  font-size: 18px; color: rgba(255,255,255,0.9); line-height: 1.6;
-  margin-bottom: 28px; max-width: 720px;
+  font-size: 18px; color: var(--color-muted); line-height: 1.6;
+  margin-bottom: 32px; max-width: 540px;
 }
-.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; justify-content: center; }
-.hero-stats { 
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
-  margin-top: 48px; padding-top: 48px;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  max-width: 900px; width: 100%;
-}
-.hero-stat {
-  text-align: center;
-}
-.hero-stat-number {
-  font-size: clamp(32px, 4vw, 42px);
-  font-weight: 800;
-  color: white;
-  line-height: 1;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-.hero-stat-label {
-  font-size: 14px;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.4;
-}
-
-/* Hero floating decorations */
-.hero-float {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.15;
-}
-.hero-float-1 {
-  top: 10%;
-  left: 5%;
-  width: 120px;
-  height: 120px;
-  animation: float-drift 20s ease-in-out infinite;
-}
-.hero-float-2 {
-  top: 60%;
-  right: 8%;
-  width: 100px;
-  height: 100px;
-  animation: float-drift 25s ease-in-out infinite reverse;
-}
-.hero-float-3 {
-  bottom: 15%;
-  left: 10%;
-  width: 80px;
-  height: 80px;
-  animation: float-spin 30s linear infinite;
-}
-@keyframes float-drift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(20px, -30px) rotate(10deg); }
-}
-@keyframes float-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.trust-chips { display: none; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px; }
+.trust-chips { display: flex; flex-direction: column; gap: 10px; }
 .trust-chip {
   display: inline-flex; align-items: center; gap: 10px;
   color: var(--color-text-soft); font-size: 14px; font-weight: 500;
@@ -867,23 +782,7 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 .stats-section { background: var(--color-surface); }
 
 /* ===== Hero CTA-final on homepage ===== */
-.cta-final-section { 
-  padding: 96px 0; 
-  background: linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 100%);
-  position: relative;
-  overflow: hidden;
-}
-.cta-final-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: url('data:image/svg+xml,%3Csvg width="1440" height="120" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0,60 Q360,20 720,60 T1440,60 L1440,0 L0,0 Z" fill="%23F1F5F9"/%3E%3C/svg%3E') no-repeat top center;
-  background-size: cover;
-  pointer-events: none;
-}
+.cta-final-section { padding: 96px 0; background: white; }
 .cta-final-grid {
   display: grid; grid-template-columns: 1fr 1px 1fr; gap: 56px;
   background: white;
@@ -902,28 +801,21 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 
 /* Hero responsive */
 @media (max-width: 980px) {
-  .hero-grid, .eko-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; padding-top: 40px; margin-top: 40px; }
+  .hero-grid, .eko-grid { grid-template-columns: 1fr; gap: 56px; }
+  .hero-visual { height: 400px; }
   .primacare-cards { grid-template-columns: 1fr; }
   .eko-diagram { max-width: 380px; }
   .cta-final-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 28px; }
   .cta-final-divider { width: 100%; height: 1px; }
-  .card-grid-3 { grid-template-columns: 1fr; gap: 20px; }
-  .card-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .section-graphic { opacity: 0.05; }
 }
 @media (max-width: 600px) {
-  .hero { padding: 40px 0 56px; }
-  .hero h1 { font-size: clamp(28px, 8vw, 36px); }
-  .hero .sub { font-size: 16px; }
-  .hero-stats { grid-template-columns: 1fr; gap: 24px; max-width: 320px; }
-  .hero-stat-number { font-size: clamp(28px, 8vw, 36px); }
-  .hero-stat-label { font-size: 13px; }
-  .card-grid-4 { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0 64px; }
+  .hero-visual { height: 360px; }
+  .hv-card-1, .hv-card-2 { width: 270px; }
+  .hv-card-1 { left: 0; }
+  .hv-card-2 { right: 0; }
   .pc-card { padding: 28px 24px; }
   .eko-diagram { max-width: 100%; }
-  .section-graphic { display: none; }
-  section.block { padding: 56px 0; }
 }
 
 /* CTA subnote (small text below button in CTA section) */
@@ -1083,7 +975,7 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
       <ul class="nav-menu" id="navMenu">
         <li><a href="./artikel/">Artikel</a></li>
         <li><a href="./webinar/">Webinar</a></li>
-        <li><a href="./layanan/">Layanan</a></li>
+        <li><a href="./kontributor/">Kontributor</a></li>
         <li><a href="./tentang/">Tentang</a></li>
         <li><a href="#kontak" class="btn btn-primary btn-sm">Hubungi Kami
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1098,57 +990,63 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 
 <!-- ========== HERO ========== -->
 <section class="hero">
-  <!-- Floating decorations -->
-  <svg class="hero-float hero-float-1" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="60" cy="60" r="50" stroke="white" stroke-width="2"/>
-    <path d="M60 10 L110 60 L60 110 L10 60 Z" stroke="white" stroke-width="2" fill="none"/>
-  </svg>
-  <svg class="hero-float hero-float-2" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="20" y="20" width="60" height="60" rx="8" stroke="white" stroke-width="2"/>
-    <circle cx="50" cy="50" r="35" stroke="white" stroke-width="1.5" stroke-dasharray="5 5"/>
-  </svg>
-  <svg class="hero-float hero-float-3" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40 5 L75 40 L40 75 L5 40 Z" stroke="white" stroke-width="2" fill="none"/>
-  </svg>
   <div class="container hero-grid">
-    <div class="eyebrow">🏥 UNTUK NAKES &amp; KLINIK INDONESIA</div>
-    <h1>Webinar SKP, Artikel Medis, dan Layanan Klinik <span class="accent">Terpercaya</span></h1>
-    <p class="sub">Satu platform untuk dokter yang ingin berkembang dan klinik yang ingin beroperasi lebih efisien — didukung PrimaPro &amp; PrimaCare.</p>
-    <div class="hero-cta">
-      <a href="./webinar/" class="btn btn-ghost-dark btn-lg">
-        Lihat Webinar SKP
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="./layanan/" class="btn btn-ghost-dark btn-lg">Lihat Layanan Kami</a>
+    <div class="hero-text">
+      <div class="eyebrow">🏥 UNTUK NAKES &amp; KLINIK INDONESIA</div>
+      <h1>Webinar SKP, Artikel Medis, dan Layanan Klinik <span class="accent">Terpercaya</span>.</h1>
+      <p class="sub">Satu platform untuk dokter yang ingin berkembang dan klinik yang ingin beroperasi lebih efisien — didukung PrimaPro &amp; PrimaCare.</p>
+      <div class="hero-cta">
+        <a href="./webinar/" class="btn btn-primary btn-lg">
+          Lihat Webinar SKP
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#primacare" class="btn btn-secondary btn-lg">Layanan untuk Klinik</a>
+      </div>
+      <div class="trust-chips">
+        <div class="trust-chip">
+          <span class="trust-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Webinar berSKP resmi Kemenkes
+        </div>
+        <div class="trust-chip">
+          <span class="trust-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Artikel diverifikasi dokter spesialis
+        </div>
+        <div class="trust-chip">
+          <span class="trust-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Dipercaya 200+ klinik Indonesia
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-number">5.000+</div>
-        <div class="hero-stat-label">Dokter aktif di komunitas</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-number">200+</div>
-        <div class="hero-stat-label">Klinik pengguna PrimaCare</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-number">120+</div>
-        <div class="hero-stat-label">Webinar SKP terselenggara</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-number">450+</div>
-        <div class="hero-stat-label">Artikel diverifikasi spesialis</div>
-      </div>
+    <div class="hero-visual" aria-hidden="true">
+      <a href="#" class="hv-card hv-card-1" style="text-decoration:none;color:inherit">
+        <div class="hv-icon hv-icon-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="hv-label">Webinar SKP</div>
+        <div class="hv-title">Update Pedoman Imunisasi 2026 untuk Dokter Umum</div>
+        <div class="hv-meta">
+          <span class="pill pill-primary">3 SKP · Kemenkes</span>
+          <span>📅 12 Mei 2026</span>
+        </div>
+      
+      </a>
+      <a href="https://primacare.ai" target="_blank" rel="noopener" class="hv-card hv-card-2" style="text-decoration:none;color:inherit">
+        <div class="hv-icon hv-icon-soft">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+        </div>
+        <div class="hv-label">PrimaCare RME</div>
+        <div class="hv-title">Rekam Medis Elektronik untuk Klinik Modern</div>
+        <div class="hv-meta">
+          <span class="pill pill-soft">200+ Klinik</span>
+          <span>✓ Cold chain</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ========== SECTION A: WEBINAR SKP ========== -->
 <section class="block" id="webinar">
-  <svg class="section-graphic section-graphic-tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="2" opacity="0.3"/>
-    <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="2" opacity="0.5"/>
-    <path d="M100 20 L180 100 L100 180 L20 100 Z" stroke="currentColor" stroke-width="2" fill="none" opacity="0.4"/>
-  </svg>
   <div class="container">
     <div class="section-head">
       <div class="section-eyebrow">Webinar Ber-SKP</div>
@@ -1218,31 +1116,26 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 
 <!-- ========== SECTION B: ARTIKEL DOKTER ========== -->
 <section class="block block-alt" id="artikel">
-  <svg class="section-graphic section-graphic-br" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="40" y="40" width="80" height="80" stroke="currentColor" stroke-width="2" rx="8" opacity="0.25"/>
-    <rect x="60" y="60" width="120" height="120" stroke="currentColor" stroke-width="2" rx="12" opacity="0.35"/>
-    <circle cx="180" cy="60" r="40" stroke="currentColor" stroke-width="2" opacity="0.2"/>
-  </svg>
   <div class="container">
     <div class="section-head">
       <div class="section-eyebrow">Artikel Medis</div>
       <h2>Bacaan klinis untuk dokter &amp; praktisi.</h2>
       <p>Ditulis dan diverifikasi langsung oleh dokter spesialis aktif. Konten berbasis evidence, bukan opini.</p>
     </div>
-    <div class="card-grid-4">
+    <div class="card-grid-3">
       <a href="./artikel/panduan-hipertensi-2026/" class="artikel-card">
         <div class="artikel-thumb gradient-1">
           <span class="artikel-tag">Kardiologi</span>
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <div class="artikel-body">
-          <h3>Panduan Hipertensi pada Praktik Dokter Umum 2026</h3>
-          <p class="artikel-excerpt">Ulasan komprehensif tentang stratifikasi risiko dan pilihan terapi farmakologi terkini.</p>
+          <h3>Panduan Lengkap Penanganan Hipertensi pada Praktik Dokter Umum 2026</h3>
+          <p class="artikel-excerpt">Ulasan komprehensif tentang stratifikasi risiko, pilihan terapi farmakologi terkini, serta strategi follow-up berdasarkan guideline JNC 9.</p>
           <div class="artikel-author">
             <div class="author-avatar">RS</div>
             <div class="author-info">
               <div class="author-name">dr. Ratna Sari, Sp.PD-KKV</div>
-              <div class="author-meta">12 menit baca</div>
+              <div class="author-meta">12 menit baca · RS Hermina YK</div>
             </div>
           </div>
         </div>
@@ -1250,16 +1143,16 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
       <a href="./artikel/imunisasi-hpv-dewasa/" class="artikel-card">
         <div class="artikel-thumb gradient-2">
           <span class="artikel-tag">Imunisasi</span>
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <div class="artikel-body">
-          <h3>Imunisasi HPV Dewasa: Kapan dan Mengapa Penting</h3>
-          <p class="artikel-excerpt">Indikasi terbaru vaksinasi HPV pada populasi dewasa dan jadwal pemberian.</p>
+          <h3>Imunisasi HPV Dewasa: Kapan, Untuk Siapa, dan Mengapa Penting</h3>
+          <p class="artikel-excerpt">Indikasi terbaru vaksinasi HPV pada populasi dewasa, jadwal pemberian, serta kontraindikasi yang perlu diperhatikan dokter umum.</p>
           <div class="artikel-author">
             <div class="author-avatar">AP</div>
             <div class="author-info">
               <div class="author-name">dr. Andi Pranata, Sp.A(K)</div>
-              <div class="author-meta">8 menit baca</div>
+              <div class="author-meta">8 menit baca · RS Anak Bunda</div>
             </div>
           </div>
         </div>
@@ -1267,33 +1160,16 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
       <a href="./artikel/diagnosis-dini-diabetes/" class="artikel-card">
         <div class="artikel-thumb gradient-3">
           <span class="artikel-tag">Endokrin</span>
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
         <div class="artikel-body">
           <h3>Diagnosis Dini Diabetes Tipe 2 pada Layanan Primer</h3>
-          <p class="artikel-excerpt">Pendekatan praktis skrining DM tipe 2 dan kriteria diagnosis ADA terbaru.</p>
+          <p class="artikel-excerpt">Pendekatan praktis skrining DM tipe 2 di puskesmas dan klinik, kriteria diagnosis ADA terbaru, serta integrasi dengan PRB BPJS.</p>
           <div class="artikel-author">
             <div class="author-avatar">BW</div>
             <div class="author-info">
               <div class="author-name">dr. Bayu Wicaksono, Sp.PD</div>
-              <div class="author-meta">10 menit baca</div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="./artikel/manajemen-asma-anak/" class="artikel-card">
-        <div class="artikel-thumb gradient-4">
-          <span class="artikel-tag">Respirasi</span>
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M12 2v8M12 14v8M2 12h8M14 12h8"/></svg>
-        </div>
-        <div class="artikel-body">
-          <h3>Manajemen Asma pada Anak: Update Pedoman GINA 2026</h3>
-          <p class="artikel-excerpt">Pendekatan terkini diagnosis dan tata laksana asma pediatrik di layanan primer.</p>
-          <div class="artikel-author">
-            <div class="author-avatar">AP</div>
-            <div class="author-info">
-              <div class="author-name">dr. Andi Pranata, Sp.A(K)</div>
-              <div class="author-meta">11 menit baca</div>
+              <div class="author-meta">10 menit baca · RS Pondok Indah</div>
             </div>
           </div>
         </div>
@@ -1309,11 +1185,6 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 
 <!-- ========== SECTION C: PRIMACARE (DARK) ========== -->
 <section class="block primacare-section" id="primacare">
-  <svg class="section-graphic section-graphic-tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 100 L80 40 L140 100 L80 160 Z" stroke="white" stroke-width="1.5" fill="none" opacity="0.12"/>
-    <circle cx="150" cy="50" r="35" stroke="white" stroke-width="1.5" opacity="0.1"/>
-    <rect x="120" y="140" width="60" height="60" rx="8" stroke="white" stroke-width="1.5" opacity="0.08"/>
-  </svg>
   <div class="container">
     <div class="section-head">
       <div class="section-eyebrow">Untuk Klinik &amp; Faskes</div>
@@ -1361,56 +1232,36 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
 </section>
 
 <!-- ========== SECTION D: TENTANG PRIMAPRO & EKOSISTEM ========== -->
-<section class="block block-alt" id="layanan-overview">
-  <svg class="section-graphic section-graphic-tl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="90" cy="90" r="70" stroke="currentColor" stroke-width="2" stroke-dasharray="10 10" opacity="0.2"/>
-    <path d="M90 20 L160 90 L90 160 L20 90 Z" stroke="currentColor" stroke-width="2" fill="none" opacity="0.25"/>
-  </svg>
-  <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Layanan PrimaPro</div>
-      <h2>Lebih dari sekadar webinar dan artikel.</h2>
-      <p>PrimaPro menyediakan layanan lengkap untuk mendukung praktik medis Anda — dari edukasi hingga operasional klinik.</p>
-    </div>
-    <div class="card-grid-3" style="margin-top:48px">
-      <div class="pc-card" style="background:white;border:1px solid var(--color-border);border-radius:var(--r-md);padding:28px;text-align:left">
-        <div style="width:56px;height:56px;background:var(--color-accent-soft);border-radius:12px;display:grid;place-items:center;margin-bottom:20px">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3 style="font-size:20px;margin-bottom:12px">Konsultasi Online</h3>
-        <p style="color:var(--color-muted);line-height:1.6;margin-bottom:18px">Telekonsultasi dengan dokter spesialis melalui aplikasi PrimaPro untuk pasien Anda.</p>
-      </div>
-      <div class="pc-card" style="background:white;border:1px solid var(--color-border);border-radius:var(--r-md);padding:28px;text-align:left">
-        <div style="width:56px;height:56px;background:var(--color-accent-soft);border-radius:12px;display:grid;place-items:center;margin-bottom:20px">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
-        <h3 style="font-size:20px;margin-bottom:12px">Katalog Medis</h3>
-        <p style="color:var(--color-muted);line-height:1.6;margin-bottom:18px">Database obat, prosedur medis, dan panduan klinis lengkap untuk referensi cepat.</p>
-      </div>
-      <div class="pc-card" style="background:white;border:1px solid var(--color-border);border-radius:var(--r-md);padding:28px;text-align:left">
-        <div style="width:56px;height:56px;background:var(--color-accent-soft);border-radius:12px;display:grid;place-items:center;margin-bottom:20px">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
-        </div>
-        <h3 style="font-size:20px;margin-bottom:12px">Grafik Tumbuh Kembang</h3>
-        <p style="color:var(--color-muted);line-height:1.6;margin-bottom:18px">Monitoring pertumbuhan anak dengan kurva WHO terintegrasi di rekam medis.</p>
-      </div>
-    </div>
-    <div class="section-cta" style="margin-top:40px">
-      <a href="./layanan/" class="btn btn-primary btn-lg">Lihat Semua Layanan
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Removed old ecosystem diagram section -->  
-<section class="block" id="tentang" style="display:none">
+<section class="block block-alt" id="tentang">
   <div class="container">
     <div class="eko-grid">
       <div class="eko-text">
         <div class="section-eyebrow">Tentang PrimaPro</div>
         <h2>Ekosistem digital untuk kesehatan Indonesia.</h2>
-        <p>PrimaPro adalah platform yang menghubungkan dokter, klinik, dan pasien dalam satu ekosistem terintegrasi.</p>
+        <p>PrimaPro adalah platform yang menghubungkan dokter, klinik, dan pasien dalam satu ekosistem terintegrasi. Di luar website ini, kami mengoperasikan aplikasi PrimaPro untuk dokter, PrimaCare RME untuk manajemen klinik, dan layanan suplai vaksin untuk klinik.</p>
+        <ul class="eko-list">
+          <li class="eko-item">
+            <div class="eko-item-icon">📱</div>
+            <div class="eko-item-content">
+              <h4>Aplikasi PrimaPro</h4>
+              <p>Untuk dokter: rekam medis, jadwal, komunitas, dan telekonsultasi.</p>
+            </div>
+          </li>
+          <li class="eko-item">
+            <div class="eko-item-icon">🏥</div>
+            <div class="eko-item-content">
+              <h4>PrimaCare</h4>
+              <p>Untuk klinik: RME, antrian, farmasi, dan suplai vaksin.</p>
+            </div>
+          </li>
+          <li class="eko-item">
+            <div class="eko-item-icon">💉</div>
+            <div class="eko-item-content">
+              <h4>Suplai Vaksin</h4>
+              <p>Untuk klinik: pengadaan vaksin resmi dengan cold chain terjaga, langsung ke klinik Anda.</p>
+            </div>
+          </li>
+        </ul>
         <a href="./tentang/" class="btn btn-secondary">Tentang Kami
           <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -1480,7 +1331,33 @@ footer { background: var(--color-neutral-900); color: rgba(255,255,255,0.7); pad
     </div>
   </section>
 
-<!-- Stats section moved to hero banner -->
+<!-- ========== SECTION E: STATS ========== -->
+<section class="block stats-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Dipercaya komunitas medis</div>
+      <h2>Angka yang berbicara.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">5.000+</div>
+        <div class="stat-label">Dokter aktif di komunitas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Klinik pengguna PrimaCare</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">120+</div>
+        <div class="stat-label">Webinar SKP terselenggara</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">450+</div>
+        <div class="stat-label">Artikel diverifikasi spesialis</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ========== SECTION F: CTA PENUTUP — 2 KOLOM ========== -->
 <section class="cta-final-section" id="kontak">
