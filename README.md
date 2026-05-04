@@ -6,7 +6,7 @@ Personal work projects repository.
 
 PrimaPro website mockup - Platform profesional untuk nakes & klinik Indonesia.
 
-### Current Version: **v5.0.2** (2026-05-04)
+### Current Version: **v5.0.3** (2026-05-04)
 
 **Major Redesign** - Hero banner, services section, responsive design, and decorative graphics.
 
@@ -19,6 +19,25 @@ PrimaPro website mockup - Platform profesional untuk nakes & klinik Indonesia.
 ---
 
 ## Changelog
+
+### v5.0.3 (2026-05-04) - Link Fix for Contact Page
+
+**🐛 Bug Fix:**
+- Fixed "Hubungi Kami" link paths across all detail pages
+- Corrected relative paths based on directory nesting level
+- Level 1 pages (listing): `../kontak/` ✓
+- Level 2 pages (detail): `../../kontak/` ✓
+
+**Files Fixed:**
+- 18 detail pages (6 artikel + 4 webinar + 8 kontributor)
+- Total: 49 links verified and working
+
+**Testing:**
+- Comprehensive link verification performed
+- All navigation and footer links tested
+- Test documentation included (FINAL-LINK-VERIFICATION.md)
+
+---
 
 ### v5.0.2 (2026-05-04) - Contact Page
 
